@@ -18,12 +18,18 @@ permalink: /
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-Hey there, this is Emanuele's blog.
+Hi, I'm Emanuele. 
 
-I'm an Engineer who likes software and cybersecurity.
-Here you'll find posts spanning from random thoughts to more technical stuff. I won't add more, let my posts speak for themselves.
+I'm a software engineer and I live in Amsterdam (NL).
 
-*Opinions are my own.*
+My life is multitasking: I code, boxe, run, cook (of course, I'm italian you know), and sometimes I raise a kernel panick.
+
+Besides other things I like **cybersecurity**. Down here you'll fine some academic papers I worked on.
+Currently, I'm looking into **Rust** and *fuzzing*. I brought up this blog mostly to organize my thoughts and work.
+
+
+<!-- Here you'll find posts spanning from random thoughts to more technical stuff. I won't add more, let my posts speak for themselves. -->
+
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
