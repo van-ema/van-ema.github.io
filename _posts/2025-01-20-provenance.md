@@ -10,17 +10,15 @@ categories: Rust
 
 and Rust made it very clear to everyone.
 
-I may understand if you've never heard about pointers provenace.
-Maybe you are a 10yoe programmer and still you never needed to know what provenance is. 
-Similar to apparent forces in Physics, Provenance exists, just because we can see it. Therefore, we must define so that the world can work as it actualy does.
-So let's start from the beginning. How do we know provenance exixsts and where to find it?
+Have you ever heard of pointer provenance? If not, don’t worry—you’re not alone. Even if you’ve been programming for 10 years, you might have never needed to think about it. But here's the thing: provenance is a bit like those "apparent forces" in physics—it exists because we can observe its effects. And since it’s there, we need to define it to make sense of how things really work under the hood.
 
+So, where do we even start? How do we know pointer provenance exists, and how can we find it? Let’s break it down.
 ## Provenance in Rust
 
-The statement 'pointers are just integers' is refuted by the [counterexample](https://godbolt.org/z/ce4bjqjbM) illustrated in [RFC3559 of Rust])https://rust-lang.github.io/rfcs/3559-rust-has-provenance.html).
-So we now know that provenance exists but we don't actually have a mean to use it when we code. isn't it?
-Rust 1.84 stable version introduce APIs to manipulate pointers and specify provenance explicitly. 
-Rust documentation states:
+The claim that "pointers are just integers" doesn’t hold up, as demonstrated by [counterexample](https://godbolt.org/z/ce4bjqjbM) and explained in [RFC3559 of Rust])https://rust-lang.github.io/rfcs/3559-rust-has-provenance.html).
+But here’s the catch — while provenance exists, we haven’t really had a way to interact with it directly in our code. That changes with Rust 1.84. The stable release introduces new APIs that let developers manipulate pointers and explicitly define their provenance.
+
+As the Rust documentation state
 
     It is undefined behavior to offset a pointer across a memory range that is not contained in the allocated object it is derived from
 
@@ -50,3 +48,7 @@ and again
     The getelementptr instruction may have a number of attributes that impose additional rules. If any of the rules are violated, the result value is a [poison value](https://llvm.org/docs/LangRef.html#poisonvalues). 
 
 and therefore and out-of-bound Gep which is not used afterwards is not UB.
+
+Further readings:
+- [Strict provenance in Rust](https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance)
+- [Pointers Are Complicated blog post by Ralf's Jung](https://www.ralfj.de/blog/2018/07/24/pointers-and-bytes.html)
