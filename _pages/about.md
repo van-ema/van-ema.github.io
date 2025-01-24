@@ -20,19 +20,10 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 Welcome at [emavan.com](emavan.com).
+
 I use this site to dump any kind of note which reckon worth to share.
+
 Use them at your own risk!
-
-<!-- Here you'll find posts and notes about my work on Rust, memory safety, and fuzzing. -->
-<!-- Hi, I'm Emanuele. 
-
-I'm a software engineer and I live in Amsterdam (NL).
-
-My life is multitasking: I code, boxe, run, cook (of course, I'm italian you know), and sometimes I raise a kernel panick.
-
-Besides other things I like **cybersecurity**. Down here you'll fine some academic papers I worked on.
-Currently, I'm looking into **Rust** and *fuzzing*. I brought up this blog mostly to organize my thoughts and work. -->
-
 
 <!-- Here you'll find posts spanning from random thoughts to more technical stuff. I won't add more, let my posts speak for themselves. -->
 
