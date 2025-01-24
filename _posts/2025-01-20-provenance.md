@@ -42,13 +42,14 @@ with `wrapped_offset`:
 ```
 
 and what LLVM LangRef says about Gep instruction?
-    The result value of the getelementptr may be outside the object pointed to by the base pointer. The result value may not necessarily be used to access memory though, even if it happens to point into allocated storage
+> The result value of the getelementptr may be outside the object pointed to by the base pointer. The result value may not necessarily be used to access memory though, even if it happens to point into allocated storage
 
 and again
-    The getelementptr instruction may have a number of attributes that impose additional rules. If any of the rules are violated, the result value is a [poison value](https://llvm.org/docs/LangRef.html#poisonvalues). 
+
+>  The getelementptr instruction may have a number of attributes that impose additional rules. If any of the rules are violated, the result vale is a [poison value](https://llvm.org/docs/LangRef.html#poisonvalues). 
 
 and therefore and out-of-bound Gep which is not used afterwards is not UB.
 
-Further readings:
+### Further readings:
 - [Strict provenance in Rust](https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance)
 - [Pointers Are Complicated blog post by Ralf's Jung](https://www.ralfj.de/blog/2018/07/24/pointers-and-bytes.html)
