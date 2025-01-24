@@ -19,10 +19,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Welcome at [emavan.com](emavan.com).
-
-I use this site to dump any kind of note which reckon worth to share.
-
+Welcome at [emavan.com](emavan.com). \
+I use this site to dump any kind of note which reckon worth to share.\
 Use them at your own risk!
 
 <!-- Here you'll find posts spanning from random thoughts to more technical stuff. I won't add more, let my posts speak for themselves. -->

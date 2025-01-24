@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pointers provenance is real
+title: (Rust) Pointers provenance is real
 date: 2025-01-20 11:12:00-0400
 description: Provenance and Rust
 # tags: formatting
