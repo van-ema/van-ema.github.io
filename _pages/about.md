@@ -20,8 +20,15 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 Welcome at [emavan.com](emavan.com). \
-I use this site to dump any kind of note which reckon worth to share.\
-Use them at your own risk!
+I'm a software engineer based in Amsterdam. I'm passionate about software and hardware security. 
+
+Currently, I'm working on Rust and memory safety projects during my free time.\
+I may use this site to dump any kind of note which reckon worth to share.\
+*Use them at your own risk!*
+
+Do you want to connect? You can find me on [linkedin](www.linkedin.com/in/emanuele-vannacci).
+
+
 
 <!-- Here you'll find posts spanning from random thoughts to more technical stuff. I won't add more, let my posts speak for themselves. -->
 
