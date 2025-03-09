@@ -26,7 +26,7 @@ Currently, I'm working on Rust and memory safety projects during my free time.\
 I may use this site to dump any kind of note which reckon worth to share.\
 *Use them at your own risk!*
 
-Do you want to connect? You can find me on [linkedin](www.linkedin.com/in/emanuele-vannacci).
+Do you want to connect? You can find me on [linkedin](https://www.linkedin.com/in/emanuele-vannacci).
 
 
 
