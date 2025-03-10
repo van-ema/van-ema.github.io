@@ -19,7 +19,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Welcome at [emavan.com](emavan.com). \
+Welcome at [emavan.com](.). \
 I'm a software engineer based in Amsterdam. I'm passionate about software and hardware security. 
 
 Currently, I'm working on Rust and memory safety projects during my free time.\
