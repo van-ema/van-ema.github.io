@@ -14,7 +14,19 @@ $(document).ready(function() {
   if($('#toc-sidebar').length){
     var navSelector = "#toc-sidebar";
     var $myNav = $(navSelector);
-    Toc.init($myNav);
+    var $postContent = $('#markdown-content');
+    if ($postContent.length) {
+      Toc.init({
+        $nav: $myNav,
+        $scope: $postContent
+      });
+    } else {
+      Toc.init($myNav);
+    }
+    if ($myNav.find('li').length === 0) {
+      $myNav.closest('.post-sidebar').hide();
+      $('.post-page').removeClass('post-page-with-toc');
+    }
     $("body").scrollspy({
       target: navSelector,
     });
@@ -46,4 +58,3 @@ $(document).ready(function() {
     }
   });
 });
-

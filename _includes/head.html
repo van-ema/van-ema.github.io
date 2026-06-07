@@ -16,7 +16,15 @@
     <!-- Code Syntax Highlighting -->
     <link rel="stylesheet" href="{{ '/assets/css/jekyll-pygments-themes-github.css' | relative_url | bust_file_cache }}" media="" id="highlight_theme_light" />
 
-    {% if page.toc and page.toc.sidebar %}
+    {% assign load_toc_assets = false %}
+    {% assign url_beginning = page.url | slice: 0, 6 %}
+    {% if page.layout == "post" and url_beginning == "/blog/" and page.toc != false %}
+      {% assign load_toc_assets = true %}
+    {% elsif page.toc and page.toc.sidebar %}
+      {% assign load_toc_assets = true %}
+    {% endif %}
+
+    {% if load_toc_assets %}
     <!-- Sidebar Table of Contents -->
     <link href="{{ '/assets/css/bootstrap-toc.min.css' | relative_url | bust_file_cache }}" rel="stylesheet" />
     {% endif %}

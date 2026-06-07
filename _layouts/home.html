@@ -1,0 +1,89 @@
+---
+layout: default
+---
+
+<div class="home">
+  <section class="home-hero">
+    <p class="home-kicker">{{ page.kicker }}</p>
+    <h1>{{ page.hero_title }}</h1>
+    <p class="home-lede">{{ page.hero_lede }}</p>
+
+    {% if page.links %}
+      <nav class="home-links" aria-label="Homepage links">
+        {% for link in page.links %}
+          <a href="{{ link.url }}">{{ link.label }}</a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+  </section>
+
+  <section class="home-section">
+    <div class="home-section-heading">
+      <h2><a href="{{ '/blog/' | relative_url }}">Latest Writing</a></h2>
+      <a class="home-section-link" href="{{ '/blog/' | relative_url }}">Archive</a>
+    </div>
+
+    <div class="home-post-list">
+      {% assign latest_posts_limit = site.latest_posts.limit | default: 3 %}
+      {% for post in site.posts limit: latest_posts_limit %}
+        <article class="home-post">
+          <div class="home-post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            {% if post.categories.size > 0 %}
+              <span>{{ post.categories | first }}</span>
+            {% endif %}
+          </div>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          {% if post.description %}
+            <p>{{ post.description }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if page.selected_papers %}
+    <section class="home-section home-publications">
+      <div class="home-section-heading">
+        <h2><a href="{{ '/publications/' | relative_url }}">Published Papers</a></h2>
+        <a class="home-section-link" href="{{ '/publications/' | relative_url }}">All publications</a>
+      </div>
+
+      <div class="publications">
+        {% bibliography -f {{ site.scholar.bibliography }} --group_by none --query @inproceedings[selected=true]* %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if page.talk %}
+    <section class="home-section">
+      <div class="home-section-heading">
+        <h2>Talks</h2>
+        {% if page.talk.link %}
+          <a class="home-section-link" href="{{ page.talk.link }}">More</a>
+        {% endif %}
+      </div>
+
+      <div class="home-talk">
+        <div class="home-video">
+          <iframe
+            src="{{ page.talk.embed }}"
+            title="{{ page.talk.title }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div>
+          <h3>{{ page.talk.title }}</h3>
+          <p>{{ page.talk.description }}</p>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="home-section home-about">
+    {{ content }}
+  </section>
+</div>
