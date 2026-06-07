@@ -20,8 +20,15 @@ module Jekyll
             private
 
             def directory_files_content
-                target_path = File.join(directory, '**', '*')
-                Dir[target_path].map{|f| File.read(f) unless File.directory?(f) }.join
+                Array(directory).flat_map do |path|
+                    if File.directory?(path)
+                        Dir[File.join(path, '**', '*')]
+                    elsif File.file?(path)
+                        [path]
+                    else
+                        []
+                    end
+                end.sort.map { |f| File.read(f) unless File.directory?(f) }.join
             end
 
             def file_content
@@ -43,7 +50,7 @@ module Jekyll
         end
 
         def bust_css_cache(file_name)
-            CacheDigester.new(file_name: file_name, directory: 'assets/_sass').digest!
+            CacheDigester.new(file_name: file_name, directory: ['_sass', 'assets/css/main.scss']).digest!
         end
     end
 end
