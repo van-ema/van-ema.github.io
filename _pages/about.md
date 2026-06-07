@@ -20,7 +20,7 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 Welcome at [emavan.com](.). \
-I'm a software engineer based in Amsterdam. I'm passionate about software and hardware security. 
+I'm a software engineer based in Amsterdam. I like coding and reasoning about security. 
 
 Currently, I'm working on Rust and memory safety projects during my free time.\
 I may use this site to dump any kind of note which reckon worth to share.\
