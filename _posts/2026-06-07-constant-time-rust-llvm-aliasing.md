@@ -1,6 +1,6 @@
 ---
 layout: post
-title: When Constant-Time Rust Meets LLVM Alias Metadata
+title: Writing Constant-Time Rust Is Not Enough
 date: 2026-06-07 20:01:10+0200
 description: How Rust aliasing facts can let LLVM change fixed-load constant-time code into selected-address-load code.
 tags: rust llvm cryptography constant-time
