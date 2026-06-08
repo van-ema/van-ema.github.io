@@ -7,7 +7,6 @@ tags: rust llvm cryptography constant-time
 categories: Rust
 ---
 
-
 Compilers rewrite programs all the time.
 
 Rust code becomes MIR, MIR becomes LLVM IR, LLVM runs optimization passes, and
@@ -412,27 +411,6 @@ but not a timing finding by itself. The expanded triage table is in
 and the expanded run is summarized in
 [`reports/expanded-real-world-evaluation.md`](https://github.com/van-ema/ct-rust-verifier/blob/main/reports/expanded-real-world-evaluation.md).
 
-## What The Systematic Search Found
-
-The systematic search produces two useful results.
-
-First, the selected-address-load shape is not limited to the tiny reproducer. It
-appears in optimized artifacts from real Rust crates. That matters because it
-shows the compiler pattern is not just a lab construction.
-
-Second, source-only analysis is far too weak for this problem. Many source
-patterns look interesting but do not produce the final access shape. Some final
-assembly patterns are real selected loads, but their selectors come from public
-state such as length, precision, formatting, parser state, allocation state, or
-fixed public field parameters. Those are still useful findings for the detector
-and for understanding the optimizer, but they are not timing vulnerabilities by
-themselves.
-
-At the moment, the systematic investigation has not confirmed a real upstream
-crate vulnerability. The positive finding is narrower and still important:
-Rust-level aliasing semantics can affect the memory-access shape that a
-constant-time implementation relies on, and that effect can be observed in both
-controlled experiments and real optimized crate artifacts.
 
 ## Constant-Time in Rust
 
@@ -488,6 +466,18 @@ be future work, not a reason to ignore the mechanism. The next step is to
 investigate upstream call paths where this transform is reachable with a secret
 selector, extract more real-world-derived reproducers, and measure them under
 controlled timing tests.
+
+This also points toward a cleaner long-term fix. Trail of Bits recently
+described
+[`__builtin_ct_select` and `llvm.ct.select.*`](https://blog.trailofbits.com/2025/12/02/introducing-constant-time-support-for-llvm-to-protect-cryptographic-code/),
+LLVM-level intrinsics that let code express "this selection must remain
+constant-time" directly to the optimizer. That is exactly the kind of compiler
+contract this investigation is missing: Rust can currently communicate strong
+aliasing promises to LLVM, but ordinary code has no equally explicit way to say
+that a particular selection is part of a constant-time memory-access argument.
+If Rust eventually exposes safe wrappers around this kind of intrinsic, then
+constant-time libraries get a better option than relying only on source patterns,
+inline assembly, or post-build assembly audits.
 
 The compiler follows the rules it is given. The security lesson is that
 constant-time reviews need to follow the data all the way down.
